@@ -10,12 +10,12 @@ YYTKStatus Unload()
 
 DllExport YYTKStatus PluginEntry(YYTKPlugin* PluginObject)
 {
-	PluginEventManager = new TKEventManager("Amogus", PluginObject, Unload);
+	PluginEventManager = new TKEventManager("Plastik", PluginObject, Unload);
 
-	PluginAttributes_t* pluginAttributes = nullptr;
-	if (PmGetPluginAttributes(PluginEventManager->mThisPlugin, pluginAttributes) == YYTK_OK)
+	if (PmGetPluginAttributes(PluginEventManager->mThisPlugin, PluginEventManager->mPluginAttributes) == YYTK_OK)
 	{
-		PmCreateCallback(pluginAttributes,
+		PmCreateCallback(
+			PluginEventManager->mPluginAttributes,
 			PluginEventManager->mCallbackAttributes,
 			reinterpret_cast<FNEventHandler>(PluginEventManager->Callback),
 			EVT_CODE_EXECUTE,

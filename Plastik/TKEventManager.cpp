@@ -29,6 +29,7 @@ bool TKEventManager::RegisterEventCallback(std::string EventTypeStr, TKEventCall
 	return true;
 }
 
+
 YYTKStatus TKEventManager::Callback(YYTKCodeEvent* CodeEvent, void* Self)
 {
 	TKEventManager* TKSelf = static_cast<TKEventManager*>(Self); // To access vars
