@@ -17,12 +17,16 @@ private:
 	YYTKPlugin* mThisPlugin;
 
 
+
 	// Returns: Wether OutIterator is a valid iterator or .end()
 	bool EventCallbackVecGetFunc(TKEventCallback TKECB, std::vector<TKEventCallback>::iterator& OutIterator, std::vector<TKEventCallback> &EventCallbacks);
 
 public:
 	bool RegisterEventCallback(std::string EventTypeStr, TKEventCallback FunctionCB);
 	YYTKStatus Callback(YYTKCodeEvent* CodeEvent, void*);
+
+	 
+	TKEventManager(std::string PluginName, YYTKPlugin* ThisPlugin);
 
 	// Static members
 	void Print(std::string Str, Color c = CLR_DEFAULT)

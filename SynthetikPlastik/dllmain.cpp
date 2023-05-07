@@ -2,6 +2,8 @@
 #include "pch.h"
 #include "TKEventManager.h"
 
+TKEventManager* PluginEventManager = nullptr;
+
 YYTKStatus PluginUnload()
 {
 	// Cleanup
@@ -9,5 +11,6 @@ YYTKStatus PluginUnload()
 
 DllExport YYTKStatus PluginEntry(YYTKPlugin* PluginObject)
 {
+	PluginEventManager = new TKEventManager("Amogus", PluginObject);
 	return YYTKStatus::YYTK_OK;
 }

@@ -20,7 +20,6 @@ bool TKEventManager::RegisterEventCallback(std::string EventTypeStr, TKEventCall
 		std::vector<TKEventCallback> ptrVec = std::vector<TKEventCallback>();
 		ptrVec.push_back(FunctionCB);
 		mEventCallbackFunctions.insert(std::make_pair(EventTypeStr,ptrVec));
-
 	}
 	else // Contains a vector
 	{
@@ -33,4 +32,10 @@ bool TKEventManager::RegisterEventCallback(std::string EventTypeStr, TKEventCall
 YYTKStatus TKEventManager::Callback(YYTKCodeEvent* CodeEvent, void*)
 {
 	// Loop through vectors and see if registered
+}
+
+TKEventManager::TKEventManager(std::string PluginName, YYTKPlugin* ThisPlugin)
+{
+	mPluginName = PluginName;
+	mThisPlugin = ThisPlugin;
 }
