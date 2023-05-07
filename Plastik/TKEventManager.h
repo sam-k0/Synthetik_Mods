@@ -1,5 +1,4 @@
 #pragma once
-#define _CRT_SECURE_NO_WARNINGS
 #define YYSDK_PLUGIN
 #include "SDK/SDK.hpp"
 #include <vector>
@@ -18,6 +17,7 @@ private:
 
 	// Returns: Wether OutIterator is a valid iterator or .end()
 	bool EventCallbackVecGetFunc(TKEventCallback TKECB, std::vector<TKEventCallback>::iterator& OutIterator, std::vector<TKEventCallback>& EventCallbacks);
+	
 
 public:
 	// Public Member Vars
@@ -28,6 +28,7 @@ public:
 
 	// Public Functions
 	bool RegisterEventCallback(std::string EventTypeStr, TKEventCallback FunctionCB);
+	std::vector<TKEventCallback>* GetEventCallbacks(std::string EventTypeStr);
 	// Constructor
 	TKEventManager(std::string PluginName, YYTKPlugin* ThisPlugin, FNPluginUnload OnUnload);
 
