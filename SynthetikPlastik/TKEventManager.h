@@ -14,19 +14,21 @@ class TKEventManager
 private:
 	std::map<std::string,std::vector<TKEventCallback>> mEventCallbackFunctions;
 	std::string mPluginName;
-	YYTKPlugin* mThisPlugin;
-
-
+	FNPluginUnload UnloadCallback;
 
 	// Returns: Wether OutIterator is a valid iterator or .end()
 	bool EventCallbackVecGetFunc(TKEventCallback TKECB, std::vector<TKEventCallback>::iterator& OutIterator, std::vector<TKEventCallback> &EventCallbacks);
 
 public:
-	bool RegisterEventCallback(std::string EventTypeStr, TKEventCallback FunctionCB);
-	YYTKStatus Callback(YYTKCodeEvent* CodeEvent, void*);
+	YYTKPlugin* mThisPlugin;
+	CallbackAttributes_t* mCallbackAttributes = nullptr;
 
+	bool RegisterEventCallback(std::string EventTypeStr, TKEventCallback FunctionCB);
+
+	// TODO: Rewrite this to static and pass void* arg self....
+	YYTKStatus Callback(YYTKCodeEvent* CodeEvent, void*);
 	 
-	TKEventManager(std::string PluginName, YYTKPlugin* ThisPlugin);
+	TKEventManager(std::string PluginName, YYTKPlugin* ThisPlugin, FNPluginUnload OnUnload);
 
 	// Static members
 	void Print(std::string Str, Color c = CLR_DEFAULT)

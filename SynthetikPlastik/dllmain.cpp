@@ -4,13 +4,29 @@
 
 TKEventManager* PluginEventManager = nullptr;
 
-YYTKStatus PluginUnload()
+YYTKStatus Unload()
 {
 	// Cleanup
 }
 
+YYTKStatus InvokePEM(YYTKCodeEvent* codeEvent, void* v)
+{
+	PluginEventManager->Callback(codeEvent, v);
+}
+
 DllExport YYTKStatus PluginEntry(YYTKPlugin* PluginObject)
 {
-	PluginEventManager = new TKEventManager("Amogus", PluginObject);
+	PluginEventManager = new TKEventManager("Amogus", PluginObject, Unload);
+
+	PluginAttributes_t* pluginAttributes = nullptr;
+	if (PmGetPluginAttributes(PluginEventManager->mThisPlugin, pluginAttributes) == YYTK_OK)
+	{
+		PmCreateCallback(pluginAttributes,
+			PluginEventManager->mCallbackAttributes,
+			reinterpret_cast<FNEventHandler>(InvokePEM),
+			EVT_CODE_EXECUTE, 
+			nullptr);
+	}
+
 	return YYTKStatus::YYTK_OK;
 }

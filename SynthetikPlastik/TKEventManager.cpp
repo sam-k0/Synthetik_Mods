@@ -34,8 +34,10 @@ YYTKStatus TKEventManager::Callback(YYTKCodeEvent* CodeEvent, void*)
 	// Loop through vectors and see if registered
 }
 
-TKEventManager::TKEventManager(std::string PluginName, YYTKPlugin* ThisPlugin)
+
+TKEventManager::TKEventManager(std::string PluginName, YYTKPlugin* ThisPlugin, FNPluginUnload OnUnload)
 {
 	mPluginName = PluginName;
 	mThisPlugin = ThisPlugin;
+	mThisPlugin->PluginUnload = OnUnload;
 }
