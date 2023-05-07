@@ -1,6 +1,6 @@
 #include "TKEventManager.h"
 
-bool TKEventManager::EventCallbackVecGetFunc(TKEventCallback TKECB, std::vector<TKEventCallback>::iterator& OutIterator, std::vector<TKEventCallback> &EventCallbacks)
+bool TKEventManager::EventCallbackVecGetFunc(TKEventCallback TKECB, std::vector<TKEventCallback>::iterator& OutIterator, std::vector<TKEventCallback>& EventCallbacks)
 {
 	OutIterator = std::find(EventCallbacks.begin(), EventCallbacks.end(), TKECB);// Try to find the iterator
 	if (OutIterator == EventCallbacks.end())
@@ -19,7 +19,7 @@ bool TKEventManager::RegisterEventCallback(std::string EventTypeStr, TKEventCall
 	{
 		std::vector<TKEventCallback> ptrVec = std::vector<TKEventCallback>();
 		ptrVec.push_back(FunctionCB);
-		mEventCallbackFunctions.insert(std::make_pair(EventTypeStr,ptrVec));
+		mEventCallbackFunctions.insert(std::make_pair(EventTypeStr, ptrVec));
 	}
 	else // Contains a vector
 	{
@@ -29,9 +29,12 @@ bool TKEventManager::RegisterEventCallback(std::string EventTypeStr, TKEventCall
 	return true;
 }
 
-YYTKStatus TKEventManager::Callback(YYTKCodeEvent* CodeEvent, void*)
+YYTKStatus TKEventManager::Callback(YYTKCodeEvent* CodeEvent, void* Self)
 {
+	TKEventManager* TKSelf = static_cast<TKEventManager*>(Self); // To access vars
+
 	// Loop through vectors and see if registered
+	return YYTKStatus::YYTK_OK;
 }
 
 

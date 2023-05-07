@@ -1,17 +1,11 @@
 // dllmain.cpp : Defines the entry point for the DLL application.
-#include "pch.h"
 #include "TKEventManager.h"
-
 TKEventManager* PluginEventManager = nullptr;
 
 YYTKStatus Unload()
 {
 	// Cleanup
-}
-
-YYTKStatus InvokePEM(YYTKCodeEvent* codeEvent, void* v)
-{
-	PluginEventManager->Callback(codeEvent, v);
+	return YYTKStatus::YYTK_OK;
 }
 
 DllExport YYTKStatus PluginEntry(YYTKPlugin* PluginObject)
@@ -23,10 +17,12 @@ DllExport YYTKStatus PluginEntry(YYTKPlugin* PluginObject)
 	{
 		PmCreateCallback(pluginAttributes,
 			PluginEventManager->mCallbackAttributes,
-			reinterpret_cast<FNEventHandler>(InvokePEM),
-			EVT_CODE_EXECUTE, 
-			nullptr);
+			reinterpret_cast<FNEventHandler>(PluginEventManager->Callback),
+			EVT_CODE_EXECUTE,
+			PluginEventManager); // Pass self to function to access vars in static member fnc
 	}
 
 	return YYTKStatus::YYTK_OK;
 }
+
+

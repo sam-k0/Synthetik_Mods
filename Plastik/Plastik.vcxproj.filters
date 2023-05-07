@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="SDK\Plugins\API Definitions\APIDefs.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\Structures\Documented\CDynamicArray\CDynamicArray.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\Plugins\Plugins.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\Structures\Documented\RefThing\RefThing.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\Structures\Documented\YYRValue\YYRValue.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="TKEventManager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SDK\Plugins\API Definitions\APIDefs.hpp">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Structures\Documented\APIVars\APIVars.hpp">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Structures\Documented\CCode\CCode.hpp">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Structures\Documented\CDynamicArray\CDynamicArray.hpp">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Structures\Documented\CHashMap\CHashMap.hpp">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Structures\Undocumented\CScript\CScript.hpp">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Enums\Enums.hpp">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Structures\Documented\FunctionInfo\FunctionInfo.hpp">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\FwdDecls\FwdDecls.hpp">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Structures\Documented\Math\Math.hpp">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Plugins\Plugins.hpp">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Structures\Documented\RefThing\RefThing.hpp">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Structures\Documented\RToken\RToken.hpp">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\SDK.hpp">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Structures\Documented\VMBuffer\VMBuffer.hpp">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Structures\Undocumented\VMExec\VMExec.hpp">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Structures\Undocumented\YYGMLFuncs\YYGMLFuncs.hpp">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Structures\Undocumented\YYObjectBase\YYObjectBase.hpp">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Structures\Documented\YYRValue\YYRValue.hpp">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Plugins\YYTKEvent\YYTKEvent.hpp">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Structures\Undocumented\YYVAR\YYVAR.hpp">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="TKEventManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="SDK">
+      <UniqueIdentifier>{720a5931-6898-4f36-ba40-c2b4e0ef39e2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
